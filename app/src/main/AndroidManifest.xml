@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
@@ -26,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".GeofenceService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
@@ -33,7 +37,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <receiver android:name=".GeofencingBroadCastReceiver"
-            android:exported="false">
+            android:enabled="true"
+            android:exported="true">
             <intent-filter >
                 <action android:name="com.aol.android.geofence.ACTION_RECEIVE_GEOFENCE"/>
             </intent-filter>

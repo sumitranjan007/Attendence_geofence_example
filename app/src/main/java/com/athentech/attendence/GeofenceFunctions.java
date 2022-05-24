@@ -1,5 +1,6 @@
 package com.athentech.attendence;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +14,9 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
 
 public class GeofenceFunctions {
-    private Context context;
+    private Activity context;
 
-    GeofenceFunctions(Context context){
+    GeofenceFunctions(Activity context){
         this.context=context;
     }
     private Geofence creategeofence(String geofenceID, LatLng latLng,float radius){

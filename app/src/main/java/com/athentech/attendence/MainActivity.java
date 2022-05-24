@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void addGeofences(String geofenceID, LatLng latLng){
         GeofenceFunctions geofenceFunctions=new GeofenceFunctions(MainActivity.this);
         GeofencingClient geofencingClient= LocationServices.getGeofencingClient(MainActivity.this);
-        geofencingClient.addGeofences(geofenceFunctions.requestGeofence(geofenceID,latLng,20f),geofenceFunctions.geofencingPendingIntent())
+        geofencingClient.addGeofences(geofenceFunctions.requestGeofence(geofenceID,latLng,50f),geofenceFunctions.geofencingPendingIntent())
                 .addOnSuccessListener(MainActivity.this, new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -250,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void drawGeofenceOnMap(double lat,double longs){
         CircleOptions circleOptions = new CircleOptions()
                 .center( new LatLng(lat,longs) )
-                .radius( 20 )
+                .radius( 50)
                 .fillColor(0x40ff0000)
                 .strokeColor(Color.TRANSPARENT)
                 .strokeWidth(2);
